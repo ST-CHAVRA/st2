@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ST Chavara School</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f3f9ff, #e6f4ff);
+            color: #333;
+        }
+
+        /* Banner Section */
+        .chavar-banner {
+            height: 50vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKBIhfUuo3HsdVfWuHidcGphlWXKrtNiyeyDXjkSPghg&s');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-text {
+            text-align: center;
+            color: white;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        .banner-text h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .banner-text h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            font-weight: 400;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Navigation Buttons */
+        .buttons {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 14px;
+            background: linear-gradient(135deg, #ff6f61, #ff4a4a);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .buttons button:hover {
+            background: linear-gradient(135deg, #ff4a4a, #ff6f61);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Content Sections */
+        .content {
+            display: none;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Leadership Card Styles */
+        .leadership-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .profile-header {
+            text-align: center;
+            color: #c62828;
+            margin-bottom: 15px;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            background: #f8f9fa;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-wrapper:hover .profile-image {
+            transform: scale(1.05);
+        }
+
+        .profile-info {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .profile-info h3 {
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        .profile-role {
+            color: #c62828;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* About Section Styles */
+        .about-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .about-card h3 {
+            color: #1565c0;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: #333;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .facilities-list {
+            list-style: none;
+            padding: 0;
+            columns: 2;
+            gap: 20px;
+        }
+
+        .facilities-list li {
+            padding: 8px 0;
+            font-size: 1rem;
+            position: relative;
+            padding-left: 20px;
+            break-inside: avoid;
+        }
+
+        .facilities-list li:before {
+            content: "▹";
+            color: #c62828;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .chavar-banner {
+                height: 40vh;
+            }
+
+            .banner-text h1 {
+                font-size: 2rem;
+            }
+
+            .banner-text h2 {
+                font-size: 1.2rem;
+            }
+
+            .image-wrapper {
+                height: 250px;
+            }
+
+            .profile-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .facilities-list {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner Section -->
+    <header class="chavar-banner">
+        <div class="banner-text">
+            <h1>Welcome to</h1>
+            <h2>St. Chavara School</h2>
+        </div>
+    </header>
+
+    <!-- Navigation Buttons -->
+    <div class="buttons">
+        <button onclick="showContent('home-content')">HOME</button>
+        <button onclick="showContent('about-content')">ABOUT US</button>
+    </div>
+
+    <!-- Home Content -->
+    <div class="content" id="home-content">
+        <!-- Welcome Section -->
+        <div class="leadership-card">
+            <div class="image-wrapper">
+                <img src="https://stchavarashirur.org/static/images/about-img.jpg" alt="School Campus" class="profile-image">
+            </div>
+            <div class="profile-info">
+                <h3>Welcome to ST. CHAVARA SCHOOL</h3>
+                <p class="quote">"Empowering Minds. Enriching Lives"</p>
+                <p>Nestled in the lush, picturesque terrains of Saradwadi, Shirur, Maharashtra</p>
+            </div>
+        </div>
+
+        <!-- Leadership Sections -->
+        <div class="leadership-card">
+            <div class="profile-header">
+                <h3 class="profile-role">OUR PATRON</h3>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://stchavarashirur.org/static/images/kuriakose.jpg" alt="Our Patron" class="profile-image">
+            </div>
+            <div class="profile-info">
+                <h3>St. Chavara Kuriakose Elias</h3>
+                <p class="quote">"Days on which you have not rendered any good to others will not be reckoned in the book of life."</p>
+            </div>
+        </div>
+
+        <div class="leadership-card">
+            <div class="profile-header">
+                <h3 class="profile-role">OUR FATHER OF SCHOOL</h3>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://stchavarashirur.org/static/images/jerry.png" alt="Rev. Fr. Jerry Alex" class="profile-image">
+            </div>
+            <div class="profile-info">
+                <h3>Rev. Fr. Jerry Alex</h3>
+                <p class="quote">"Leading with compassion and dedication to educational excellence."</p>
+            </div>
+        </div>
+
+        <div class="leadership-card">
+            <div class="profile-header">
+                <h3 class="profile-role">CHAIRMAN</h3>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://stchavarashirur.org/static/images/chairman-1.jpg" alt="Chairman" class="profile-image">
+            </div>
+            <div class="profile-info">
+                <h3>Rev. Dr. Thomas Elavanal</h3>
+                <p class="quote">"We encourage excellence, inventive thinking, and highest standards of moral values."</p>
+            </div>
+        </div>
+
+        <div class="leadership-card">
+            <div class="profile-header">
+                <h3 class="profile-role">PRINCIPAL</h3>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://stchavarashirur.org/static/images/princi.jpg" alt="Principal" class="profile-image">
+            </div>
+            <div class="profile-info">
+                <h3>Rev. Sr. Litty Thomas</h3>
+                <p class="quote">"Building a community of mindful, proactive, and compassionate students."</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Content -->
+    <div class="content" id="about-content">
+        <!-- About School Section -->
+        <div class="about-card">
+            <div class="image-wrapper">
+                <img src="https://stchavarashirur.org/static/images/about-img.jpg" alt="About School" class="profile-image">
+            </div>
+            <div class="profile-info">
+                <h3>About ST. CHAVARA SCHOOL</h3>
+                <p>Spread across four acres of well-planned property with modern facilities, we prioritize safety and holistic development of our students and staff.</p>
+            </div>
+        </div>
+
+        <!-- Motto Section -->
+        <div class="about-card">
+            <div class="profile-info">
+                <h3>Our Motto</h3>
+                <p class="quote">"Empowering Minds. Enriching Lives"</p>
+                <p>The cornerstone of our educational philosophy that guides all our activities and programs.</p>
+            </div>
+        </div>
+
+        <!-- Vision Section -->
+        <div class="about-card">
+            <div class="profile-info">
+                <h3>Our Vision</h3>
+                <p>"To mould younger generations with integrated social personalities through inclusive and holistic education."</p>
+            </div>
+        </div>
+
+        <!-- Facilities Section -->
+        <div class="about-card">
+            <div class="profile-info">
+                <h3>Our Facilities</h3>
+                <ul class="facilities-list">
+                    <li>State-of-the-art ICT Labs</li>
+                    <li>Modern Science Laboratories</li>
+                    <li>Comprehensive Library</li>
+                    <li>Sports Arena & Indoor Games</li>
+                    <li>Safe Transportation</li>
+                    <li>Hostel Accommodation</li>
+                    <li>Child Care Services</li>
+                    <li>Spiritual Development Center</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; For more information | <a href="https://stchavarashirur.org" target="_blank">Visit Official Website</a></p>
+    </footer>
+
+    <script>
+        function showContent(id) {
+            document.querySelectorAll('.content').forEach(content => {
+                content.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        showContent('home-content');
+    </script>
+</body>
+</html>
